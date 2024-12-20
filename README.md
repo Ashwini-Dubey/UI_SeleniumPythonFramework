@@ -28,3 +28,7 @@ This project is an end-to-end testing framework for a web application using Sele
 4. **Run Tests:** You can run the tests using pytest. You can specify the browser name through the CLI using --browser_name option.
     ```bash
     pytest --browser_name <browser_name>
+
+5. **Test Reports:** You can run the tests using pytest. You can specify the --html=reports.html through the CLI for the HTML reports.
+    ```bash
+    pytest --browser_name <browser_name> --html=report.html

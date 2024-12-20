@@ -19,49 +19,36 @@ class TestHomePage(BaseClass):
         homePage = HomePage(self.driver)
         log = self.getlogger()
 
-        log.info(f"{getData["Name"]} is the name")
         # Name
-        #driver.find_element(By.CSS_SELECTOR, "input[name='name']").send_keys('Test')
         homePage.getName().send_keys(getData["Name"])
 
-        # Email
-        #driver.find_element(By.NAME, "email").send_keys("testing@yopmail.com")
+        #Email
         homePage.getName().send_keys(getData["Email"])
 
-        # Password
-        #driver.find_element(By.ID, "exampleInputPassword1").send_keys("Pass@1234")
+        #Password
         homePage.getPassword().send_keys(getData["Password"])
 
-        # Checkbox
-        #driver.find_element(By.ID, "exampleCheck1").click()
+        #Checkbox
         homePage.clickCheckbox()
 
         #Gender
-        #Gender = Select(driver.find_element(By.ID, "exampleFormControlSelect1"))
-        #Gender.select_by_visible_text("Female")
         homePage.selectGender(getData["Gender"])
 
-        # EmploymentStatus
-        #driver.find_element(By.XPATH, "//input[@id='inlineRadio2']").click()
+        #EmploymentStatus
         homePage.getEmploymentStatus()
 
-        # DOB
-        #driver.find_element(By.NAME, "bday").send_keys('1996-01-01')
+        #DOB
         homePage.getDOB().send_keys(getData["DOB"])
 
-        # Submit
-        #driver.find_element(By.XPATH, "//input[@type='submit']").click()
+        #Submit
         homePage.clickSubmit()
 
-        # Success Message
-        #message = driver.find_element(By.CLASS_NAME, "alert-success").text
-        #print(message)
-        #assert "Success!" in message
+        #Success Message
         homePage.getSuccessMessage()
         log.info(homePage.getSuccessMessage())
         log.info("Registration is successful")
         self.driver.refresh()
-        #assert "Success!" in success_message
+
 
 
 #Invoking DDT

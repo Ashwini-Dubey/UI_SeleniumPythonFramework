@@ -41,7 +41,7 @@ class TestOne(BaseClass):
         checkoutPage.checkoutClick().click()
         time.sleep(10)
 
-        # Search for the country and select 'India'
+        #Search for the country and select 'India'
 
         confirmPage.countrySearch().send_keys("ind")
         confirmPage.countrySelect().click()
