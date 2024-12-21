@@ -7,12 +7,13 @@ from ..pageObjects.CheckoutPage import CheckoutPage
 from ..pageObjects.HomePage import HomePage
 from ..pageObjects.ConfirmPage import ConfirmPage
 from ..utilities.BaseClass import BaseClass
+import pytest
 
 class TestOne(BaseClass):
     """
     Test class for end-to-end testing of the application.
     """
-    def test_e2e(self):
+    def test_e2e(self,getData):
         """
         Test method for simulating an end-to-end user journey on the application.
         """
@@ -43,7 +44,7 @@ class TestOne(BaseClass):
 
         #Search for the country and select 'India'
 
-        confirmPage.countrySearch().send_keys("ind")
+        confirmPage.countrySearch().send_keys(getData["Country"])
         confirmPage.countrySelect().click()
 
         # Agree to the terms and conditions
@@ -57,3 +58,14 @@ class TestOne(BaseClass):
         success = confirmPage.checkSuccessMessage().text
         assert "Success!" in success
         log.info("Congrats! Purchase is successful")
+        self.driver.refresh()
+
+    # Tuple Data Set
+    #@pytest.fixture(params=[("Test"),("Test2")])
+    #def getData(self, request):
+    #   return request.param
+
+    # Dictionary Data set
+    @pytest.fixture(params=[{"Country": "Ind"},{"Country":"Ind"}])
+    def getData(self, request):
+        return request.param

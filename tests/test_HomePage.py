@@ -54,9 +54,13 @@ class TestHomePage(BaseClass):
 #Invoking DDT
     #Tuple Data Set
     #@pytest.fixture(params=[("Test","testddt1@yopmail.com","Pass@123","Male","1996-01-01"),("Test2","testddt2@yopmail.com","Pass@123","Female","1986-01-01")])
+    #def getData(self,request):
+    #   return request.param
 
     #Dictionary Data set
-    #@pytest.fixture(params=[{"Name":"Test","Email":"testddt1@yopmail.com","Password":"Pass@123","Gender":"Male","DOB":"1996-01-01"},{"Name":"Test2","Email":"testddt2@yopmail.com","Password":"Pass@123","Gender":"Female","DOB":"1976-01-01"}])
+    @pytest.fixture(params=[{"Name":"Test","Email":"testddt1@yopmail.com","Password":"Pass@123","Gender":"Male","DOB":"1996-01-01"},{"Name":"Test2","Email":"testddt2@yopmail.com","Password":"Pass@123","Gender":"Female","DOB":"1976-01-01"}])
+    def getData(self,request):
+       return request.param
 
     #Get the data from HomePageData file
     @pytest.fixture(params=HomePageData.test_HomePage_data)
